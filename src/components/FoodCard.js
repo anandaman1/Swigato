@@ -1,6 +1,6 @@
 
 
-export default function Foodcard({foodData})
+export default function FoodCard({foodData})
 {
 
 

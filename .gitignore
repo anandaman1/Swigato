@@ -19,3 +19,7 @@ Thumbs.db
 # Editor files
 .vscode/
 .idea/
+
+#resource
+tester.js/
+tester2.js/
