@@ -1,21 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
-import FoodOption from "./components/FoodOption";
-import GroceryOption from "./components/GroceryOption";
-import DineOption from "./components/DineOption";
+import Home from "./components/Home";
 import Restaurant from "./components/Restaurant";
+import { BrowserRouter, Routes, Route } from "react-router"
 
 
 function App() {
   return (
-    <div>
-      <Header></Header>
-      <FoodOption></FoodOption>
-      <GroceryOption></GroceryOption>
-       <DineOption></DineOption>
-       <Restaurant></Restaurant>
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home></Home>}></Route>
+      <Route path="/restaurant" element={<Restaurant></Restaurant>}></Route>
+    </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
