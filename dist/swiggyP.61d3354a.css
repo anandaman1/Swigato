@@ -46,6 +46,7 @@
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-red-500: oklch(63.7% .237 25.331);
+    --color-orange-600: oklch(64.6% .222 41.116);
     --color-green-600: oklch(62.7% .194 149.214);
     --color-green-700: oklch(52.7% .154 150.069);
     --color-gray-200: oklch(92.8% .006 264.531);
@@ -483,6 +484,10 @@
     height: calc(var(--spacing) * 36);
   }
 
+  .h-42 {
+    height: calc(var(--spacing) * 42);
+  }
+
   .h-45 {
     height: calc(var(--spacing) * 45);
   }
@@ -805,6 +810,10 @@
 
   .text-green-700 {
     color: var(--color-green-700);
+  }
+
+  .text-orange-600 {
+    color: var(--color-orange-600);
   }
 
   .text-white {
