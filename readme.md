@@ -1,206 +1,106 @@
-// ============================
-// index.html
-// ============================
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swiggy Clone</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+# 🍔 Swiggy Frontend Clone
 
-// ============================
-// src/main.jsx
-// ============================
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./styles.css";
+This project is a frontend clone of the Swiggy food delivery application built using React.js.  
+It focuses on replicating the core user interface and frontend behavior of the Swiggy platform.
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+---
 
-// ============================
-// src/App.jsx
-// ============================
-import React from "react";
-import Header from "./components/Header";
-import Body from "./components/Body";
+## 📌 Project Description
 
-const App = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
+The Swiggy Frontend Clone demonstrates how a real-world food delivery website is structured using React’s component-based architecture.  
+Restaurant data is rendered dynamically, and users can search for restaurants using a search bar.
 
-export default App;
+This project is created only for learning and practice purposes.
 
-// ============================
-// src/components/Header.jsx
-// ============================
-import React from "react";
+---
 
-const Header = () => {
-  return (
-    <div className="header">
-      <h1>Swiggy</h1>
-      <ul className="nav">
-        <li>Home</li>
-        <li>About</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  );
-};
+## 🚀 Features
 
-export default Header;
+- Swiggy-style homepage layout  
+- Restaurant listing cards  
+- Search restaurants by name  
+- Dynamic UI rendering using React  
+- Reusable components  
+- Clean folder structure  
 
-// ============================
-// src/components/Body.jsx
-// ============================
-import React, { useState } from "react";
-import RestaurantCard from "./RestaurantCard";
-import restaurantList from "../utils/mockData";
+---
 
-const Body = () => {
-  const [searchText, setSearchText] = useState("");
+## 🛠️ Tech Stack
 
-  const filteredRestaurants = restaurantList.filter((res) =>
-    res.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+- React.js  
+- JavaScript (ES6+)  
+- HTML5  
+- CSS3  
 
-  return (
-    <div className="body">
-      <input
-        type="text"
-        placeholder="Search restaurants"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-        className="search"
-      />
+---
 
-      <div className="restaurant-container">
-        {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.id} {...restaurant} />
-        ))}
-      </div>
-    </div>
-  );
-};
+## 📁 Folder Structure
 
-export default Body;
+```
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── Body.jsx
+│   └── RestaurantCard.jsx
+├── utils/
+│   └── mockData.js
+├── App.jsx
+├── main.jsx
+└── styles.css
+```
 
-// ============================
-// src/components/RestaurantCard.jsx
-// ============================
-import React from "react";
+---
 
-const RestaurantCard = ({ name, cuisine, rating, deliveryTime, image }) => {
-  return (
-    <div className="card">
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
-      <p>{cuisine}</p>
-      <p>⭐ {rating}</p>
-      <p>{deliveryTime} mins</p>
-    </div>
-  );
-};
+## ⚙️ Installation & Setup
 
-export default RestaurantCard;
+1. Clone the repository  
+```
+git clone https://github.com/your-username/swiggy-clone.git
+```
 
-// ============================
-// src/utils/mockData.js
-// ============================
-const restaurantList = [
-  {
-    id: 1,
-    name: "Burger King",
-    cuisine: "Burgers, Fast Food",
-    rating: 4.2,
-    deliveryTime: 30,
-    image: "https://source.unsplash.com/400x300/?burger",
-  },
-  {
-    id: 2,
-    name: "Domino's Pizza",
-    cuisine: "Pizza, Italian",
-    rating: 4.4,
-    deliveryTime: 25,
-    image: "https://source.unsplash.com/400x300/?pizza",
-  },
-  {
-    id: 3,
-    name: "Biryani House",
-    cuisine: "Biryani, Indian",
-    rating: 4.1,
-    deliveryTime: 35,
-    image: "https://source.unsplash.com/400x300/?biryani",
-  },
-];
+2. Install dependencies  
+```
+npm install
+```
 
-export default restaurantList;
+3. Run the project  
+```
+npm run dev
+```
 
-// ============================
-// src/styles.css
-// ============================
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+---
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: #fc8019;
-  color: white;
-}
+## 🧠 How It Works
 
-.nav {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+- Restaurant data is stored in a mock data file
+- Data is displayed using `map()` in React
+- Search input filters restaurants dynamically
+- State is managed using `useState`
+- UI is divided into reusable components
 
-.body {
-  padding: 20px;
-}
+---
 
-.search {
-  padding: 10px;
-  width: 300px;
-  margin-bottom: 20px;
-}
+## 🎯 Learning Outcomes
 
-.restaurant-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+- Understanding React component architecture  
+- Working with props and state  
+- Building dynamic UI from data  
+- Implementing search functionality  
+- Structuring a frontend project properly  
 
-.card {
-  width: 250px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-}
+---
 
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-}
+## 🔮 Future Enhancements
+
+- Add restaurant menu page  
+- Add cart functionality  
+- Integrate real APIs  
+- Add shimmer/loading UI  
+- Use Redux or Context API  
+
+---
+
+## ⚠️ Disclaimer
+
+This project is built only for educational purposes.  
+All brand names, logos, and images belong to Swiggy.
